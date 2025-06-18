@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiger Martial Arts</title>
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { background-color: #181818; color: #f5f5f5; font-family: Arial, sans-serif; }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(34, 40, 49, 0.95);
+      padding: 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 999;
+      box-shadow: 0 2px 12px 0 rgba(34, 40, 49, 0.25);
+      height: 64px;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      height: 64px;
+      padding-left: 32px;
+    }
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff9800;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(34,40,49,0.12);
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      height: 64px;
+      padding-right: 32px;
+    }
+    nav a {
+      color: #ff9800;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 1.1em;
+    }
+    nav a:hover {
+      color: #ffd180;
+    }
+    header {
+      background: url('https://www.martialtribes.com/wp-content/uploads/2022/08/leslie-jones-urBiLDuUhMU-unsplash-1-1024x683.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 4px 32px 0 rgba(34, 40, 49, 0.25);
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      background: rgba(34, 40, 49, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 24px 0 rgba(34, 40, 49, 0.25);
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      background: rgba(34, 40, 49, 0.5);
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px 0 rgba(34, 40, 49, 0.18);
+    }
+    h2 {
+      color: #ff9800;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      margin-top: 0;
+    }
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 18px;
+      font-size: 1.25rem;
+      color: #ffd180;
+      font-weight: bold;
+    }
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    #classes {
+      padding: 100px 30px 100px 30px;
+      background: #23272f;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px 0 rgba(34, 40, 49, 0.18);
+    }
+    #feature-image {
+      position: relative;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+    #feature-image h2 {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(34, 40, 49, 0.7);
+      padding: 10px 20px;
+      border-radius: 8px;
+      z-index: 1;
+      box-shadow: 0 2px 12px 0 rgba(34, 40, 49, 0.18);
+    }
+    #feature-image div {
+      background-image: url(https://images4.alphacoders.com/139/thumb-1920-1391801.png);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      height: 70vh;
+      width: 100%;
+    }
+    table {
+      width: 90%;
+      margin: auto;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-bottom: 32px;
+      background: #263159;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px 0 rgba(38, 49, 89, 0.25);
+      transition: box-shadow 0.3s;
+    }
+    th {
+      background: #ff9800;
+      color: #23272f;
+      font-weight: bold;
+      padding: 22px 18px;
+      text-align: center;
+      font-size: 1.08em;
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      border-bottom: 2px solid #ffd180;
+      transition: background 0.3s, color 0.3s;
+    }
+    td {
+      border: none;
+      padding: 20px 18px;
+      text-align: center;
+      vertical-align: middle;
+      color: #f5f5f5;
+      background: rgba(255,255,255,0.03);
+      font-size: 1em;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+    table tr {
+      transition: box-shadow 0.3s, background 0.3s, transform 0.2s;
+    }
+    table tr:hover td {
+      background: #3d4977;
+      color: #ffd180;
+      box-shadow: 0 4px 16px 0 rgba(38, 49, 89, 0.18);
+      cursor: pointer;
+      transform: translateY(-2px) scale(1.01);
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+    }
+    form input, form button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #23272f;
+    }
+    form button {
+      background-color: #ff9800;
+      color: #23272f;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 8px 0 rgba(34, 40, 49, 0.12);
+    }
+    .team-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px 0;
+    }
+    .card {
+      background: #23272f;
+      color: #f5f5f5;
+      width: 280px;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: left;
+      position: relative;
+      box-shadow: 0 4px 24px 0 rgba(34, 40, 49, 0.18);
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px 0 rgba(34, 40, 49, 0.12);
+    }
+    .info {
+      padding: 10px;
+    }
+    .info h3 {
+      margin-bottom: 5px;
+      font-size: 1.2rem;
+    }
+    .info p {
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+    .social {
+      margin-top: 10px;
+    }
+    .social a {
+      margin-right: 10px;
+      color: #ffd180;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2em;
+      transition: color 0.2s;
+    }
+    .social a:hover {
+      color: #ff9800;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #23272f;
+      color: #bdbdbd;
+      box-shadow: 0 -2px 12px 0 rgba(34, 40, 49, 0.18);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <span class="site-title">Tiger Martial Arts</span>
+  </div>
+  <div class="nav-right">
+    <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="#about"><i class="fa-solid fa-circle-info"></i> About</a>
+    <a href="#team"><i class="fa-solid fa-users"></i> Team</a>
+    <a href="#classes"><i class="fa-solid fa-list"></i> Our Classes</a>
+    <a href="#subscribe"><i class="fa-solid fa-envelope"></i> Subscribe</a>
+  </div>
+</nav>
+
+<header id="home">
+  <h1>Tiger Martial Arts</h1>
+  <p>Empower your body and mind through expert martial arts training in Dubai</p>
+</header>
+
+<section id="about">
+  <h2>About Us</h2>
+  <p>🥋 Founded with a passion for martial arts and community wellness, Tiger Martial Arts has grown into one of Dubai's leading training centers for personal development and fitness. We believe that martial arts is more than just physical skill — it is a path to discipline, confidence, and lifelong strength. From traditional forms like Karate and Muay Thai to modern fitness programs and self-defence courses, we offer classes for all ages and experience levels. Our expert instructors foster a positive, inclusive environment where students are empowered to challenge themselves and achieve their goals. Whether you are a complete beginner or an experienced athlete, Tiger Martial Arts welcomes you to join our journey — train hard, grow strong, and become your best self.&nbsp;</p>
+  <p>Tiger Martial Arts is a Dubai-based training center offering world-class martial arts education. From self-defence to fitness, our mission is to transform lives through discipline, strength, and respect.</p>
+</section>
+
+<section id="feature-image">
+  <h2>Power. Speed. Precision.</h2>
+  <div></div>
+</section>
+
+<section id="team">
+  <h2>Meet Our Team</h2>
+  <div class="team-section">
+    <div class="card">
+      <div class="info">
+        <h3><i class="fa-solid fa-user-circle" style="color:#ff9800; font-size:1.3em; margin-right:7px;"></i>MAURICIO GOMEZ</h3>
+        <p>Coaches in all martial arts</p>
+        <p>4th Dan black belt Jiu-Jitsu</p>
+        <p>1st Dan black belt Karate</p>
+        <p>Accredited Muay Thai coach</p>
+        <div class="social">
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="info">
+        <h3><i class="fa-solid fa-user-circle" style="color:#ff9800; font-size:1.3em; margin-right:7px;"></i>Sarah Nova [assistant martial arts coach]</h3>
+        <p>5th Dan Karate</p>
+        <div class="social">
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="info">
+        <h3><i class="fa-solid fa-user-circle" style="color:#ff9800; font-size:1.3em; margin-right:7px;"></i>MORRIS DAVIS</h3>
+        <p>Accredited Muay Thai coach</p>
+        <p>3rd Dan Black belt Karate</p>
+        <div class="social">
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="info">
+        <h3><i class="fa-solid fa-user-circle" style="color:#ff9800; font-size:1.3em; margin-right:7px;"></i>Traci Santiago</h3>
+        <p>BSc in Sports Science</p>
+        <p>Qualified in health & nutrition</p>
+        <p>Strength & conditioning specialist</p>
+        <div class="social">
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="info">
+        <h3><i class="fa-solid fa-user-circle" style="color:#ff9800; font-size:1.3em; margin-right:7px;"></i>Harpreet Kaur</h3>
+        <p>BSc in Physiotherapy</p>
+        <p>MSc in Sports Science</p>
+        <div class="social">
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="info">
+        <h3><i class="fa-solid fa-user-circle" style="color:#ff9800; font-size:1.3em; margin-right:7px;"></i>Harpreet Kaur</h3>
+        <p>BSc in Physiotherapy</p>
+        <p>MSc in Sports Science</p>
+        <div class="social">
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="info">
+        <h3><i class="fa-solid fa-user-circle" style="color:#ff9800; font-size:1.3em; margin-right:7px;"></i>Harpreet Kaur</h3>
+        <p>BSc in Physiotherapy</p>
+        <p>MSc in Sports Science</p>
+        <div class="social">
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="info">
+        <h3><i class="fa-solid fa-user-circle" style="color:#ff9800; font-size:1.3em; margin-right:7px;"></i>Traci Santiago</h3>
+        <p>BSc in Sports Science</p>
+        <p>Qualified in health & nutrition</p>
+        <p>Strength & conditioning specialist</p>
+        <div class="social">
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      
+  </div>
+</section>
+
+<section id="classes">
+  <h2>Our Classes</h2>
+  <h3>📄 Prices and Membership Options</h3>
+  <table>
+    <tr><th>Membership Type</th><th>Details</th><th>Monthly Fee</th></tr>
+    <tr><td>Basic</td><td>1 martial art – 2 sessions per week</td><td>£25.00</td></tr>
+    <tr><td>Intermediate</td><td>1 martial art – 3 sessions per week</td><td>£35.00</td></tr>
+    <tr><td>Advanced</td><td>Any 2 martial arts – 5 sessions per week</td><td>£45.00</td></tr>
+    <tr><td>Elite</td><td>Unlimited classes</td><td>£60.00</td></tr>
+    <tr><td>Private Tuition</td><td>Martial arts – per hour</td><td>£15.00</td></tr>
+    <tr><td>Junior Membership</td><td>Access to all kids' martial arts sessions</td><td>£25.00</td></tr>
+  </table>
+  <br>
+  <h3>📄 Specialist Courses and Fitness Training</h3>
+  <table>
+    <tr><th>Service</th><th>Details</th><th>Price</th></tr>
+    <tr><td>Beginners' Self-Defence Course</td><td>6-week course (2 × 1-hour sessions per week)</td><td>£180.00</td></tr>
+    <tr><td>Fitness Room Access</td><td>Per visit</td><td>£6.00</td></tr>
+    <tr><td>Personal Fitness Training</td><td>Per hour</td><td>£35.00</td></tr>
+  </table>
+  <br>
+  <h3>📅 Weekly Class Timetable</h3>
+  <table>
+    <tr>
+      <th>Day</th>
+      <th>4:00 PM – 5:00 PM</th>
+      <th>5:30 PM – 6:30 PM</th>
+      <th>10:00 AM – 12:00 PM</th>
+    </tr>
+    <tr><td>Monday</td><td>Karate (Kids)</td><td>Muay Thai (Adults)</td><td>—</td></tr>
+    <tr><td>Tuesday</td><td>Taekwondo (Kids)</td><td>Kickboxing (Adults)</td><td>—</td></tr>
+    <tr><td>Wednesday</td><td>Jiu-Jitsu (Kids)</td><td>MMA (Adults)</td><td>—</td></tr>
+    <tr><td>Thursday</td><td>Karate (Kids)</td><td>Muay Thai (Adults)</td><td>—</td></tr>
+    <tr><td>Friday</td><td>Self-Defence (All Ages)</td><td>—</td><td>—</td></tr>
+    <tr><td>Saturday</td><td>—</td><td>—</td><td>Open Gym</td></tr>
+    <tr><td>Sunday</td><td>—</td><td>—</td><td><strong>Closed</strong></td></tr>
+  </table>
+</section>
+
+<section id="subscribe">
+  <h2>Subscribe for Updates</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <button type="submit"><i class="fa-solid fa-paper-plane"></i> Subscribe</button>
+  </form>
+  <p>Join our newsletter to stay informed about new classes and promotions.</p>
+</section>
+
+<footer>
+  &copy; 2025 Tiger Martial Arts. All rights reserved.
+</footer>
+
+</body>
+</html>
+
+
+
+
+
